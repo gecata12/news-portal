@@ -78,7 +78,14 @@ const config = {
             favicon: commonPaths.favicon,
             inject: true
         })
-    ]
+    ],
+    resolve: {
+        alias: {
+            Components: commonPaths.componentsPath,
+            Containers: commonPaths.containersPath,
+            Styles: commonPaths.scssSettingsPath
+        }
+    }
 };
 
 module.exports = config;

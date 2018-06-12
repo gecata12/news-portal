@@ -1,23 +1,32 @@
 body {
-    background-color: $charcoal;
-    font-family: $font-family;
+    font-family: $fonts__font-family--base;
+    font-weight: $fonts__font-weight--light;
+    color: $pallete__font-color--primary;
 }
 
-.container {
-    align-items: center;
-    display: flex;
-    flex-flow: column;
-    height: 100vh;        
-    justify-content: center;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $fonts__font-family--fancy;
+    font-weight: $fonts__font-weight--regular;
+    color: $pallete__font-color--primary;
 }
 
-.logo {
-    padding-top: 20px;
+p {
+    color: $pallete__font-color--secondary;
 }
 
-.title {
-    color: $smoke;
-    font-size: 48px;
+a {
+    color: inherit;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 60px;
     text-transform: uppercase;
-    text-shadow: 0 0 20px black;
+    padding: 70px 0;
+    margin: 0;
 }

@@ -1,4 +1,20 @@
-$font-family: 'Open Sans', 'Helvetica', 'Arial', 'sans-serif';
+/*
+    Fonts
+*/
+$fonts__font-family--base: 'Roboto', 'ans-serif';
+$fonts__font-family--fancy: 'Oswald', 'ans-serif';
+$fonts__font-weight--light: 300;
+$fonts__font-weight--regular: 400;
+$fonts__font-weight--bold: 700;
 
-$charcoal: #36454F;
-$smoke: rgb(230, 230, 230);
+
+/*
+  Colors
+*/
+$pallete__font-color--primary: #212121;
+$pallete__font-color--primary-alt: #424242;
+$pallete__font-color--secondary: #616161;
+$pallete__font-color--secondary-alt: #757575;
+$pallete__font-color--light: #ffffff;
+$pallete__color--primary: #5E35B1;
+$pallete__color--secondary: #7E57C2;

@@ -1,0 +1,32 @@
+@import 'Styles/_settings.scss';
+
+.button {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  transition: all 0.3s;
+
+  &--primary {
+    background-color: $pallete__color--primary;
+    color: $pallete__font-color--light;
+  }
+
+  &--secondary {
+    color: $pallete__color--secondary;
+    background-color: transparent;
+  }
+}
+
+.button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}

@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import logo from '../logo.png';
+import ArticleList from 'Containers/ArticleList';
+import articles from '../fixtures';
 
 export default class App extends Component {
-
-    constructor() {
-        super();
-    }
-
     render() {
         return (
-            <div className='container'>                
-                <img className='logo' src={logo} />
-                <h1 className='title'>React Starter</h1>
+            <div className='container'>
+                <h1 className="page-title">News portal</h1>
+                <ArticleList articles = {articles} />
             </div>
         );
     }
