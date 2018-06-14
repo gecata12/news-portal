@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Button from 'Components/Button';
 import CommentList from 'Containers/CommentList';
 import './_article.scss';
@@ -35,5 +37,17 @@ class Article extends Component {
         );
     }
 }
+
+
+Article.propTypes = {
+    article: PropTypes.object.isRequired,
+    isOpened: PropTypes.bool,
+    onClick: PropTypes.func
+};
+
+Article.defaultProps = {
+    isOpened: false,
+    onClick: () => {}
+};
 
 export default Article;

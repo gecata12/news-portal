@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
+
 import Article from './components/Article';
 import './_articleList.scss';
 
@@ -35,5 +37,9 @@ class ArticleList extends PureComponent {
         });
     }
 }
+
+ArticleList.propTypes = {
+    articles: PropTypes.object.isRequired
+};
 
 export default ArticleList;

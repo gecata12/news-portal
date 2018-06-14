@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './_comment.scss';
 
 const Comment = (props) => {
@@ -10,6 +12,10 @@ const Comment = (props) => {
             <p className="comment__text">{comment.text}</p>
         </div>
     );
+};
+
+Comment.propTypes = {
+    comment: PropTypes.object.isRequired
 };
 
 export default Comment;
