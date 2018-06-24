@@ -5,6 +5,10 @@ import Article from './components/Article';
 import './_articleList.scss';
 
 class ArticleList extends PureComponent {
+    static propTypes = {
+        articles: PropTypes.array.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -18,7 +22,7 @@ class ArticleList extends PureComponent {
             <li key={article.id} className="articleList__item">
                 <Article
                     article={article}
-                    isOpened = {this.state.openArticleId == article.id}
+                    isOpened = {this.state.openArticleId === article.id}
                     onClick={this.handleVisibilityToggle(article.id)}
                 />
             </li>
@@ -37,9 +41,5 @@ class ArticleList extends PureComponent {
         });
     }
 }
-
-ArticleList.propTypes = {
-    articles: PropTypes.object.isRequired
-};
 
 export default ArticleList;

@@ -6,6 +6,15 @@ import Button from 'Components/Button';
 import './_commentList.scss';
 
 class CommentList extends PureComponent {
+    static propTypes = {
+        comments: PropTypes.array.isRequired,
+        isOpened: PropTypes.bool
+    };
+
+    static defaultProps = {
+        isOpened: false
+    };
+
     constructor(props) {
         super(props);
 
@@ -51,14 +60,5 @@ class CommentList extends PureComponent {
         });
     }
 }
-
-CommentList.propTypes = {
-    comments: PropTypes.object.isRequired,
-    isOpened: PropTypes.bool
-};
-
-CommentList.defaultProps = {
-    isOpened: false
-};
 
 export default CommentList;
