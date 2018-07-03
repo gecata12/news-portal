@@ -65,6 +65,8 @@
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-modal": "^3.4.5",
+    "react-toggle": "^4.0.2",
     "shave": "^2.2.0"
   }
 }

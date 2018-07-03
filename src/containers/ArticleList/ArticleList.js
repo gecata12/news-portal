@@ -1,12 +1,22 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
+import withModal from 'Hoc/withModal';
+
 import Article from './components/Article';
 import './_articleList.scss';
 
 class ArticleList extends PureComponent {
     static propTypes = {
-        articles: PropTypes.array.isRequired
+        articles: PropTypes.array.isRequired,
+        openModal: PropTypes.func,
+        hiddenArticles: PropTypes.array,
+    };
+
+    static defaultProps = {
+        openModal: () => {},
+        closeModal: () => {},
+        hiddenArticles: []
     };
 
     constructor(props) {
@@ -19,11 +29,14 @@ class ArticleList extends PureComponent {
 
     render() {
         const articleInstance = this.props.articles.map(article =>
+
             <li key={article.id} className="articleList__item">
                 <Article
                     article={article}
                     isOpened = {this.state.openArticleId === article.id}
-                    onClick={this.handleVisibilityToggle(article.id)}
+                    isHidden = {this.props.hiddenArticles.indexOf(article.id) >= 0}
+                    onExpand={this.toggleVisibility(article.id)}
+                    onRemove={() => { this.props.openModal(article.id); }}
                 />
             </li>
         );
@@ -35,11 +48,13 @@ class ArticleList extends PureComponent {
         );
     }
 
-    handleVisibilityToggle = (openArticleId) => () => {
+    toggleVisibility = (openArticleId) => () => {
         this.setState({
             openArticleId: this.state.openArticleId === openArticleId ? null : openArticleId
         });
     }
 }
 
-export default ArticleList;
+const ArticleListWithModal = withModal(ArticleList);
+
+export default ArticleListWithModal;

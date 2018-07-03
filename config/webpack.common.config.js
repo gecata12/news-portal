@@ -83,6 +83,7 @@ const config = {
         alias: {
             Components: commonPaths.componentsPath,
             Containers: commonPaths.containersPath,
+            Hoc: commonPaths.hocPath,
             Styles: commonPaths.scssSettingsPath
         }
     }

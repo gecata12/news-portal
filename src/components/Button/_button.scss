@@ -24,6 +24,21 @@
     color: $pallete__color--secondary;
     background-color: transparent;
   }
+
+  &--remove {
+    background: transparent url(./assets/remove.svg) 0 0;
+    background-size: cover;
+    width: 17px;
+    height: 17px;
+    padding: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+
+    &:hover {
+      width: 26px;
+      height: 26px;
+    }
+  }
 }
 
 .button:disabled {
