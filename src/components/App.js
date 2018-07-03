@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import { Provider } from 'react-redux';
+import store from 'Root/store/createStore';
+
 import ArticleList from 'Containers/ArticleList';
 import Switch from 'Components/Switch';
 
@@ -20,13 +23,15 @@ export default class App extends Component {
 
     render() {
         return (
-            <div className='container'>
-                <h1 className="page-title">News portal</h1>
-                <SwitchContext.Provider value={this.state} >
-                    <Switch onStateChange={this.toggleActionsVisibility} />
-                    <ArticleList articles = {articles} />
-                </SwitchContext.Provider>
-            </div>
+            <Provider store={store}>
+                <div className='container'>
+                    <h1 className="page-title">News portal</h1>
+                    <SwitchContext.Provider value={this.state} >
+                        <Switch onStateChange={this.toggleActionsVisibility} />
+                        <ArticleList articles = {articles} />
+                    </SwitchContext.Provider>
+                </div>
+            </Provider>
         );
     }
 }
