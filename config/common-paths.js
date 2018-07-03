@@ -8,5 +8,6 @@ module.exports = {
     componentsPath: path.resolve(__dirname, '../', 'src/components/'),
     containersPath: path.resolve(__dirname, '../', 'src/containers/'),
     hocPath: path.resolve(__dirname, '../', 'src/hoc/'),
-    scssSettingsPath: path.resolve(__dirname, '../', 'src/styles/')
+    scssSettingsPath: path.resolve(__dirname, '../', 'src/styles/'),
+    rootPath: path.resolve(__dirname, '../', 'src/')
 };

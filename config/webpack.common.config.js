@@ -84,7 +84,8 @@ const config = {
             Components: commonPaths.componentsPath,
             Containers: commonPaths.containersPath,
             Hoc: commonPaths.hocPath,
-            Styles: commonPaths.scssSettingsPath
+            Styles: commonPaths.scssSettingsPath,
+            Root: commonPaths.rootPath
         }
     }
 };

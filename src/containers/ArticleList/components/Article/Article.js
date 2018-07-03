@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { SwitchContext } from 'Components/App';
+
 import Button from 'Components/Button';
 import Truncate from 'Components/Truncate';
 import CommentList from 'Containers/CommentList';
@@ -13,7 +15,8 @@ class Article extends Component {
         isHidden: PropTypes.bool,
         onExpand: PropTypes.func,
         onRemove: PropTypes.func,
-        linesToShow: PropTypes.number
+        linesToShow: PropTypes.number,
+        isActionsVisible: PropTypes.bool
     };
 
     static defaultProps = {
@@ -21,7 +24,8 @@ class Article extends Component {
         isHidden: false,
         onExpand: () => {},
         onRemove: () => {},
-        linesToShow: 3
+        linesToShow: 3,
+        isActionsVisible: false
     };
 
     render() {
@@ -36,20 +40,24 @@ class Article extends Component {
             <section className={articleClasses}>
                 <header className='article__header'>
                     <h3 className='article__title'>{article.title}</h3>
-                    <div className="actions">
-                        <Button
-                            disabled='false'
-                            onButtonClick={onExpand}
-                            label={buttonLabel}
-                            className='article__button button button--secondary'
-                        />
-                        <Button
-                            disabled='false'
-                            onButtonClick={onRemove}
-                            label='Remove article'
-                            className='article__button button button--remove'
-                        />
-                    </div>
+                    <SwitchContext.Consumer>
+                        {state => (
+                            state.isActionsVisible && <div className="actions">
+                                <Button
+                                    disabled='false'
+                                    onButtonClick={onExpand}
+                                    label={buttonLabel}
+                                    className='article__button button button--secondary'
+                                />
+                                <Button
+                                    disabled='false'
+                                    onButtonClick={onRemove}
+                                    label='Remove article'
+                                    className='article__button button button--remove'
+                                />
+                            </div>
+                        )}
+                    </SwitchContext.Consumer>
                 </header>
                 <main>
                     <Truncate className='article__text' text={article.text} lines={isOpened ? false : linesToShow}/>

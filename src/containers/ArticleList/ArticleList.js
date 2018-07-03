@@ -27,15 +27,17 @@ class ArticleList extends PureComponent {
     }
 
     render() {
-        const articleInstance = this.props.articles.map(article =>
+        const { articles, hiddenElements, openModal} = this.props;
+        const { openArticleId } = this.state;
 
+        const articleInstance = articles.map(article =>
             <li key={article.id} className="articleList__item">
                 <Article
                     article={article}
-                    isOpened = {this.state.openArticleId === article.id}
-                    isHidden = {this.props.hiddenElements.indexOf(article.id) >= 0}
+                    isOpened = {openArticleId === article.id}
+                    isHidden = {hiddenElements.indexOf(article.id) >= 0}
                     onExpand={this.toggleVisibility(article.id)}
-                    onRemove={() => { this.props.openModal(article.id); }}
+                    onRemove={() => { openModal(article.id); }}
                 />
             </li>
         );
