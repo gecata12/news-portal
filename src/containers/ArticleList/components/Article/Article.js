@@ -57,7 +57,7 @@ class Article extends Component {
                     <React.Fragment>
                         <div className='article__date'>{article.date}</div>
                         {article.comments &&
-                        <CommentList comments={article.comments} isOpened={isOpened}/>
+                        <CommentList comments={article.comments} isOpened={isOpened} />
                         }
                     </React.Fragment>
                     }

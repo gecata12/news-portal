@@ -14,17 +14,19 @@ function withModal(WrappedComponent) {
         }
     };
 
+    Modal.setAppElement('#app');
+
     class WithModal extends Component {
         state = {
             modalIsOpen: false,
             activeElementId: null,
-            hiddenArticles: []
+            hiddenElements: []
         }
 
         render() {
             return (
                 <React.Fragment>
-                    <WrappedComponent data={this.state.data} {...this.props} openModal={this.openModal} hiddenArticles={this.state.hiddenArticles} />
+                    <WrappedComponent data={this.state.data} {...this.props} openModal={this.openModal} hiddenElements={this.state.hiddenElements} />
                     <Modal
                         isOpen={this.state.modalIsOpen}
                         onRequestClose={this.closeModal}
@@ -52,17 +54,17 @@ function withModal(WrappedComponent) {
         };
 
         onOk = () => {
-            this.removeArticle(this.state.activeElementId);
+            this.removeElement(this.state.activeElementId);
             this.closeModal();
         };
 
-        removeArticle = (id) => {
-            // articleId
+        removeElement = (id) => {
             this.setState({
-                hiddenArticles: [...this.state.hiddenArticles, id]
+                hiddenElements: [...this.state.hiddenElements, id]
             });
         }
     }
+
     WithModal.displayName = `WithModal(${getDisplayName(WrappedComponent)})`;
 
     return WithModal;

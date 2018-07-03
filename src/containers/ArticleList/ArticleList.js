@@ -10,13 +10,12 @@ class ArticleList extends PureComponent {
     static propTypes = {
         articles: PropTypes.array.isRequired,
         openModal: PropTypes.func,
-        hiddenArticles: PropTypes.array,
+        hiddenElements: PropTypes.array
     };
 
     static defaultProps = {
         openModal: () => {},
-        closeModal: () => {},
-        hiddenArticles: []
+        hiddenElements: []
     };
 
     constructor(props) {
@@ -34,7 +33,7 @@ class ArticleList extends PureComponent {
                 <Article
                     article={article}
                     isOpened = {this.state.openArticleId === article.id}
-                    isHidden = {this.props.hiddenArticles.indexOf(article.id) >= 0}
+                    isHidden = {this.props.hiddenElements.indexOf(article.id) >= 0}
                     onExpand={this.toggleVisibility(article.id)}
                     onRemove={() => { this.props.openModal(article.id); }}
                 />
